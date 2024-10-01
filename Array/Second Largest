@@ -1,0 +1,28 @@
+
+class Solution {
+  public:
+    // Function returns the second
+    // largest elements
+    int getSecondLargest(vector<int> &arr) {
+        vector<int>ans;  
+        set<int>s;
+        for(auto i:arr)
+        {
+            s.insert(i);  // take a set because of remove duplicates and get array in sorted away
+        }
+        
+        for(auto i:s)
+        {
+            ans.push_back(i); // get the element in the ans vector
+        }
+        
+        if(ans.size()<=1)
+        {
+            return -1;  // if the element less then 1 that means there is no second largest element 
+        }
+        
+        
+        int n=ans.size();
+        return ans[n-2];  // get the second larest element.
+    }
+};
