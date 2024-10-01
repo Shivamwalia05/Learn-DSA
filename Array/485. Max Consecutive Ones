@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int findMaxConsecutiveOnes(vector<int>& nums) {
+        int cnt = 0;
+        int maxi = INT_MIN;
+        for (int i = 0; i < nums.size(); i++) {
+            if (nums[i] == 1) // here we check if nums[i]==1 update cnt.
+            {
+                cnt++;
+            } else {
+                maxi = max(
+                    cnt,
+                    maxi); // when nums[i]==0 take cnt. and max check it is
+                           // greater then maxi or cnt if it is > maxi update it
+                cnt = 0;
+            }
+        }
+        maxi =
+            max(cnt, maxi); // here we again check because if in the only one.
+                            // then the else is execute then you will get any
+                            // random value.so that why we also check here.
+        return maxi;
+    }
+};
